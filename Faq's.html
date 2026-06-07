@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faq's</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        h1{
+            text-align: center;
+            padding: 30px 0px;
+            color: yellowgreen;
+        }
+        .faqmid{
+            margin: auto;
+            max-width: 1000px;
+        }
+        .faqitem{
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+        .faqitem h3{
+            position: relative;
+            cursor: pointer;
+            background-color: yellowgreen;
+            color: white;
+            padding: 15px;
+        }
+        .faqitem p{
+            padding: 15px;
+            display: none;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .faqitem span{
+            position:absolute;
+            right: 10px;
+        }
+        .showans{
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frequently Asked Qustion</h1>
+    <div class="faqmid">
+        <div class="faqitem">
+            <h3>What is the meaning of FAQs?<span>+</span></h3>
+            <p>FAQ is an acronym for "frequently asked questions" and refers to a list of common questions and their answers on a particular topic or subject, often found on websites to provide basic information and address user queries efficiently.  </p>
+        </div>
+
+        <div class="faqitem">
+            <h3>Do you say FAQ or FAQs?<span>+</span></h3>
+            <p>Both FAQ and FAQs are correct and acceptable, depending on whether you are referring to one set of questions or multiple sets. "FAQ" is the abbreviation for "Frequently Asked Questions," so it already inherently contains a plural idea, but it can be used for a single list or as a general concept. "FAQs" (or "faqs") is simply the plural form to denote more than one list of questions.  </p>
+        </div>
+
+        <div class="faqitem">
+            <h3>Why is it called FAQ?<span>+</span></h3>
+            <p>Pronunciation rules might make FAQ read as a single letter like "Q", but the abbreviation stands for frequently asked questions and is an important collection of information.</p>
+        </div>
+
+        <div class="faqitem">
+            <h3>How to write FAQs?<span>+</span></h3>
+            <p>Write the FAQ in an actual question-and-answer format. Start answers to yes/no questions with a definitive “yes” or “no.” Keep answers short and use plain language. Fully answer the question, don't just link to a different page.</p>
+        </div>
+    </div>
+</body>
+<script>
+    let allquestion = document.querySelectorAll(".faqitem h3")
+    allquestion.forEach((item,index)=>{
+        item.addEventListener("click",()=>{
+            allquestion.forEach((heading,i)=>{
+                if (index!=i) {
+                    heading.nextElementSibling.classList.remove('showans')
+                }
+            })
+            if (item.lastElementChild.innerHTML=="+") {
+            item.lastElementChild.innerHTML="-"
+        } else {
+            item.lastElementChild.innerHTML="+"
+        }
+        item.nextElementSibling.classList.toggle('showans')
+        })
+    })
+</script>
+</html>
